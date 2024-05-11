@@ -3,6 +3,7 @@ import Image1 from "../../assets/hero/sale.png";
 import Image2 from "../../assets/hero/shopping.png";
 import Image3 from "../../assets/women/women2.png";
 import Slider from "react-slick";
+import Popup from "../Popup/Popup";
 
 const ImageList = [
   {
@@ -28,7 +29,7 @@ const ImageList = [
   },
 ];
 
-const Hero = () => {
+const Hero = ({handleOrderPopup}) => {
   var settings = {
     dots: false,
     infinite: true,
@@ -44,7 +45,7 @@ const Hero = () => {
   return (
     <div
       className="relative overflow-hidden min-h-[550px] sm:min-h-[650px] bg-gray-100
-     flex justify-center items-center dark: bg-gray-850 dark:text-white
+     flex justify-center items-center dark:bg-gray-950 dark:text-white
      duration-200 
     "
     >
@@ -82,6 +83,7 @@ const Hero = () => {
                   className="text-sm lg:text-3xl">{data.description}</p>
                   <div>
                     <button
+                    onClick={() => handleOrderPopup()}
                       className="bg-gradient-to-r
                                 from-primary to-secondary hover:scale-105
                                 duration-200 text-white py-2 px-4 
