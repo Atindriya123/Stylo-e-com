@@ -173,53 +173,56 @@ const Navbar = ({ handleOrderPopup }) => {
           ))}
         </ul>
       </div>
-      <div className="flex justify-center text-gray-800   dark:bg-[#25282b] ">
-        <ul className={`sm:flex  items-center gap-4 text-white 
-        duration-500 ${open ? "left-0 ": "left-[-100%]"} `}
-        onClick={() => setMobileMenuOpen(!isMobileMenuOpen)}>
-          {/*Mobile Dropdown and Links*/}
-          {Menu.map((data, index) => (
-            <li
-              className="group relative cursor-pointer"
-           
-              key={data.id}
-            >
-              <div className="flex items-center gap-[2px] py-2">
-                <Link
-                  to={data.link}
-                  
-                  smooth
-                  duration={500}
-                  className="inline-block px-4 hover:text-primary duration-200 text-gray-800 dark:text-white"
-                >
-                  {data.name}
-                </Link>
-                {data.submenu && (
-                  <span>
-                    <FaCaretDown className="transition-all duration-200 text-black dark:text-white group-hover:rotate-180" />
-                  </span>
-                )}
-              </div>
-              {data.submenu && (
-                <div className="absolute z-[9999] hidden group-hover:block w-[150px] rounded-md bg-white p-2 text-black shadow-md">
-                  <ul>
-                    {data.submenu.map((item, index) => (
-                      <li key={item.id}>
-                        <Link
-                          to={item.link}
-                          className="inline-block w-full rounded-md p-3 hover: bg-primary/10"
-                        >
-                          {item.name}
-                        </Link>
-                      </li>
-                    ))}
-                  </ul>
+      {isMobileMenuOpen &&
+        <div className="flex justify-center text-gray-800   dark:bg-[#25282b] ">
+          <ul className={`sm:flex  items-center gap-4 text-white 
+        duration-500 ${open ? "left-0 " : "left-[-100%]"} `}
+            onClick={() => setMobileMenuOpen(!isMobileMenuOpen)}>
+            {/*Mobile Dropdown and Links*/}
+            {Menu.map((data, index) => (
+              <li
+                className="group relative cursor-pointer "
+
+                key={data.id}
+              >
+                <div className="flex items-center gap-[2px] py-2">
+                  <Link
+                    to={data.link}
+
+                    smooth
+                    duration={500}
+                    className="inline-block px-4 hover:text-primary duration-200 text-gray-800 dark:text-white"
+                  >
+                    {data.name}
+                  </Link>
+                  {data.submenu && (
+                    <span>
+                      <FaCaretDown className="transition-all duration-200 text-black dark:text-white group-hover:rotate-180" />
+                    </span>
+                  )}
                 </div>
-              )}
-            </li>
-          ))}
-        </ul>
-      </div>
+                {data.submenu && (
+                  <div className="absolute z-[9999] hidden group-hover:block w-[150px] rounded-md bg-white p-2 text-black shadow-md">
+                    <ul>
+                      {data.submenu.map((item, index) => (
+                        <li key={item.id}>
+                          <Link
+                            to={item.link}
+                            className="inline-block w-full rounded-md p-3 hover: bg-primary/10"
+                          >
+                            {item.name}
+                          </Link>
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+                )}
+              </li>
+            ))}
+          </ul>
+        </div>
+       }
+
     </div>
   );
 };
