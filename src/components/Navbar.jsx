@@ -135,35 +135,35 @@ const Navbar = ({ handleOrderPopup }) => {
       </div>
 
       {/* lower Navbar*/}
-      <div className="flex justify-center text-gray-800 md:hidden bg-gray ">
-        <ul className="sm:flex hidden items-center gap-4 text-white  ">
+      <div className="hidden justify-center text-gray-800  bg-gray sm:flex">
+        <ul className=" flex items-center gap-4 text-white  ">
           {/*Simple Dropdown and Links*/}
           {Menu.map((data, index) => (
             <li className="group relative cursor-pointer" key={data.id}>
               <div className="flex items-center gap-[2px] py-2">
-                {/* <Link
+                <Link
                   to={data.link}
                   className="inline-block px-4 hover:text-primary duration-200 text-gray-800 dark:text-white"
                 >
-                  {data.name}
-                </Link> */}
-                {/* {data.submenu && (
+                  {data.name+'a'}
+                </Link>
+                {data.submenu && (
                   <span>
                     <FaCaretDown className="transition-all duration-200 text-black dark:text-white group-hover:rotate-180" />
                   </span>
-                )} */}
+                )}
               </div>
               {data.submenu && (
                 <div className="absolute z-[9999] hidden group-hover:block w-[150px] rounded-md bg-white p-2 text-black shadow-md">
                   <ul>
                     {data.submenu.map((item, index) => (
                       <li key={item.id}>
-                        {/* <Link
+                        <Link
                           to={item.link}
                           className="inline-block w-full rounded-md p-3 hover: bg-primary/10"
                         >
                           {item.name}
-                        </Link> */}
+                        </Link>
                       </li>
                     ))}
                   </ul>
