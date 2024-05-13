@@ -24,7 +24,7 @@ const DarkMode = () => {
       <div className="">
       
       <img
-        src={'../src/assets/Banner/light.jpg'}
+        src={'../src/assets/Banner/light.png'}
         alt=""
         onClick={() => setTheme(theme === "light" ? "dark" : "light", "dark")}
         className={`w-12
