@@ -1,11 +1,9 @@
-
-
 import { React, useState } from "react";
 import Logo from "../assets/logo.png";
 import { IoMdSearch } from "react-icons/io";
 import { FaCartShopping } from "react-icons/fa6";
 import DarkMode from "./DarkMode";
-import { FaCaretDown,FaBars,FaTimes } from "react-icons/fa";
+import { FaCaretDown, FaBars, FaTimes } from "react-icons/fa";
 import { Link } from "react-router-dom"; // Import Link from react-router-dom
 // import { useState } from "react";
 
@@ -87,7 +85,8 @@ const Navbar = ({ handleOrderPopup }) => {
 
   const toggleMobilemenu = () => {
     setMobileMenuOpen(!isMobileMenuOpen);
-  }
+  };
+
   return (
     <div className="shadow-md bg-white dark:bg-gray-900 dark:text_white duration-200 relative z-40">
       {/*upper navbar*/}
@@ -101,11 +100,10 @@ const Navbar = ({ handleOrderPopup }) => {
           </div>
           {/* Mobile menu button*/}
 
-          <div className="block sm:hidden">
-          <button onClick={toggleMobilemenu}>
-            {isMobileMenuOpen?<FaTimes/> : <FaBars/>}
-
-          </button>
+          <div className="block sm:hidden justify-between ">
+            <button onClick={toggleMobilemenu}>
+              {isMobileMenuOpen ? <FaTimes /> : <FaBars />}
+            </button>
           </div>
 
           {/* search bar and order button*/}
@@ -133,30 +131,65 @@ const Navbar = ({ handleOrderPopup }) => {
           <div>
             <DarkMode />
           </div>
-
         </div>
       </div>
-      {/*Mobile Menu*/}
 
       {/* lower Navbar*/}
-      <div className="flex justify-center text-gray-800">
+      <div className="flex justify-center text-gray-800 md:hidden bg-gray ">
         <ul className="sm:flex hidden items-center gap-4 text-white  ">
-          {/* {Menu.map((data) => (
-            <li key={data.id}>
-              <Link
-                to={data.link}
-                className="inline-block px-4 hover:text-primary duration-200 text-gray-800"
-              >
-                {data.name}
-              </Link>
-            </li>
-          ))} */}
           {/*Simple Dropdown and Links*/}
           {Menu.map((data, index) => (
             <li className="group relative cursor-pointer" key={data.id}>
               <div className="flex items-center gap-[2px] py-2">
+                {/* <Link
+                  to={data.link}
+                  className="inline-block px-4 hover:text-primary duration-200 text-gray-800 dark:text-white"
+                >
+                  {data.name}
+                </Link> */}
+                {/* {data.submenu && (
+                  <span>
+                    <FaCaretDown className="transition-all duration-200 text-black dark:text-white group-hover:rotate-180" />
+                  </span>
+                )} */}
+              </div>
+              {data.submenu && (
+                <div className="absolute z-[9999] hidden group-hover:block w-[150px] rounded-md bg-white p-2 text-black shadow-md">
+                  <ul>
+                    {data.submenu.map((item, index) => (
+                      <li key={item.id}>
+                        {/* <Link
+                          to={item.link}
+                          className="inline-block w-full rounded-md p-3 hover: bg-primary/10"
+                        >
+                          {item.name}
+                        </Link> */}
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              )}
+            </li>
+          ))}
+        </ul>
+      </div>
+      <div className="flex justify-center text-gray-800   dark:bg-[#25282b] ">
+        <ul className={`sm:flex  items-center gap-4 text-white 
+        duration-500 ${open ? "left-0 ": "left-[-100%]"} `}
+        onClick={() => setMobileMenuOpen(!isMobileMenuOpen)}>
+          {/*Mobile Dropdown and Links*/}
+          {Menu.map((data, index) => (
+            <li
+              className="group relative cursor-pointer"
+           
+              key={data.id}
+            >
+              <div className="flex items-center gap-[2px] py-2">
                 <Link
                   to={data.link}
+                  
+                  smooth
+                  duration={500}
                   className="inline-block px-4 hover:text-primary duration-200 text-gray-800 dark:text-white"
                 >
                   {data.name}
@@ -183,17 +216,38 @@ const Navbar = ({ handleOrderPopup }) => {
                   </ul>
                 </div>
               )}
-
             </li>
           ))}
         </ul>
       </div>
     </div>
-
   );
- };
+};
 
 export default Navbar;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 // import React from "react";
 // import Logo from "../assets/logo.png";
