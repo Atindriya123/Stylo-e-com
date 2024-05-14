@@ -1,7 +1,7 @@
 import React from "react";
 import Image1 from "../../assets/hero/sale.png";
-import Image2 from "../../assets/hero/shopping.png";
-import Image3 from "../../assets/women/women2.png";
+import Image2 from "../../assets/women/shopping.png";
+import Image3 from "../../assets/women/womennew.png";
 import Slider from "react-slick";
 import Popup from "../Popup/Popup";
 

@@ -7,7 +7,7 @@ const Login = () => {
   const [showPassword, setshowPassword] = useState(false)
   return (
     <section id="login" >
-      <div className="mx-auto container p-4">
+      <div className="mx-auto container p-4" data-aos="fadeup">
         <div className="p-2 bg-white py-5 text-black rounded w-full max-w-md mx-auto">
           <div className="w-20 h-20 mx-auto">
             <img src={login} alt="login" />
@@ -40,7 +40,7 @@ const Login = () => {
                 </div>
               </div>
             </div>
-            <button>Login</button>
+            <button className="bg-red-600 m-2 rounded flex justify-center items-center text-2xl">Login</button>
           </from>
         </div>
       </div>
