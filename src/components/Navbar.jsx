@@ -145,7 +145,7 @@ const Navbar = ({ handleOrderPopup }) => {
                   to={data.link}
                   className="inline-block px-4 hover:text-primary duration-200 text-gray-800 dark:text-white"
                 >
-                  {data.name+'a'}
+                  {data.name}
                 </Link>
                 {data.submenu && (
                   <span>
